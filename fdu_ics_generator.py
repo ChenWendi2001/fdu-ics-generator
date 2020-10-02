@@ -15,6 +15,7 @@ class generator:
     start_m = (0,0,55,55,50,45,30,25,25,20,15,30,25,20)
     end_m = (0,45,40,40,35,30,15,10,10,5,0,15,10,5)
 
+    ## revise the date here
     term_start_time = datetime.datetime.strptime('2020-09-14 00:00:00+0800',
                                              '%Y-%m-%d %H:%M:%S%z')
 
@@ -24,6 +25,11 @@ class generator:
             f.close()
         self.soup = BeautifulSoup(html, "html.parser")
         
+    def printInfo(self):
+        print('使用须知:')
+        print('使用本脚本之前，你需要先将HTML文件名修改为\'课程表.html\'，并且使用编辑器编辑本脚本修改学期开始日期。')
+        print('导入时，请务必确认时间正确，以避免不必要的麻烦。')
+        print('\n')
 
     def parser(self):
         spt = str(self.soup.findAll('script'))
@@ -41,6 +47,8 @@ class generator:
                     self.info.append(course)
                     #course = course.lstrip(str(re.search(r'<td>|<td rowspan=\"\d\">',course))).rstrip('</td>')
                     #print(course)
+
+
     def write_into_ics(self):
         x = 0
         while x<len(self.info):
@@ -105,6 +113,7 @@ class generator:
 
 def main():
     g = generator()
+    g.printInfo()
     g.parser()
     g.write_into_ics()
 
