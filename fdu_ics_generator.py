@@ -3,6 +3,11 @@ import datetime
 from bs4 import BeautifulSoup
 from ics import Calendar, Event
 
+def printInfo():
+        print('使用须知:')
+        print('使用本脚本之前，你需要先将HTML文件名修改为\'课程表.html\'，且放置在脚本所在目录，并且使用编辑器编辑本脚本以修改学期开始日期。')
+        print('导入时，请务必确认时间正确，以避免不必要的麻烦。')
+        print('\n')
 
 class generator:
     soup = None
@@ -25,11 +30,6 @@ class generator:
             f.close()
         self.soup = BeautifulSoup(html, "html.parser")
         
-    def printInfo(self):
-        print('使用须知:')
-        print('使用本脚本之前，你需要先将HTML文件名修改为\'课程表.html\'，并且使用编辑器编辑本脚本修改学期开始日期。')
-        print('导入时，请务必确认时间正确，以避免不必要的麻烦。')
-        print('\n')
 
     def parser(self):
         spt = str(self.soup.findAll('script'))
@@ -112,10 +112,12 @@ class generator:
 
 
 def main():
-    g = generator()
-    g.printInfo()
-    g.parser()
-    g.write_into_ics()
+    printInfo()
+    a = input('确认后输入1以继续...')
+    if a=='1':
+        g = generator()
+        g.parser()
+        g.write_into_ics()
 
 if __name__ == '__main__':
     main()
