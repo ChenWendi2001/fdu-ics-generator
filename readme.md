@@ -1,5 +1,5 @@
-SJTU_ics_generator
-SJTU课程表日历导入脚本
+#fdu_ics_generator
+##fdu课程表日历导入脚本
 
 什么是ics？
 .ics可以帮助你快速导入批量事件到系统日历。使用本脚本将对HTML进行解析，生成.ics文件，帮助你将所有课程添加至你的mac/Win系统日历,可进一步与iPhone、安卓手机、PC/mac等终端同步。
