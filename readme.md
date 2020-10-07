@@ -16,7 +16,7 @@
 
 	pip3 install bs4
 	pip3 install ics
-	python3 ics_generator.py
+	python3 fdu_ics_generator.py
 
 ### Step3
 双击fdu.ics文件即可导入日历。
